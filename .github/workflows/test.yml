@@ -12,7 +12,7 @@ jobs:
   build: 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744  # v3
       - run: |
           npm install
       - run: |
@@ -20,7 +20,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744  # v3
       - uses: ./
         with:
           valueFile: '__tests__/fixtures/values.yaml'
@@ -36,7 +36,7 @@ jobs:
   test-no-changes-did-not-fail:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744  # v3
       - uses: ./
         with:
           valueFile: '__tests__/fixtures/values.yaml'
@@ -53,7 +53,7 @@ jobs:
   test-target-repository:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744  # v3
         with:
           path: infrastructure
       - name: Update values.yaml
@@ -73,7 +73,7 @@ jobs:
   test-update-file:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744  # v3
       - name: Cat Original values.yaml
         run: cat __tests__/fixtures/values.yaml
       - name: Update values.yaml
@@ -91,7 +91,7 @@ jobs:
   test-multiple-file-changes:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744  # v3
       - uses: ./
         with:
           branch: deployment/test-multi-file-update
@@ -123,7 +123,7 @@ jobs:
   test-value-types:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744  # v3
       - uses: ./
         with:
           valueFile: '__tests__/fixtures/values.yaml'
@@ -157,9 +157,9 @@ jobs:
       - test-multiple-file-changes
       - test-value-types
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744  # v3
       - name: Delete test branches
-        uses: dawidd6/action-delete-branch@v3
+        uses: dawidd6/action-delete-branch@d1efac9a6f7a9b408d4e8ff663a99c1fbac17b3f  # v3
         with:
           token: ${{ secrets.GH_TOKEN }}
           branches: deployment/v1.2.1,deployment/v1.0.1,deployment/test-bool-value,deployment/test-int-value,deployment/test-multi-file-update
